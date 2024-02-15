@@ -188,7 +188,7 @@ export const MemoryGame = ({
             </main>
           </div>
 
-          <aside className="content gap-3.5 p-5 border border-gray-200 rounded-lg shadow-lg my-5 h-fit">
+          <aside className="content gap-3.5 p-5 border border-gray-200 rounded-lg shadow-lg my-5 h-fit w-[280px]">
             <Tabs defaultValue="single" className="mb-4">
               <OptionItem
                 label="Mode"
