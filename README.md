@@ -13,7 +13,7 @@ Vite is a next-generation frontend build tool that significantly improves the de
 - **Fast Build Time**
 - **Optimized Production Build**
 
-### [Shadicn](https://shadicn.com/)
+### [Shadicn](https://ui.shadcn.com/)
 
 Shadicn is a library/tool that brings additional capabilities to our project:
 
