@@ -1,22 +1,16 @@
 import { useState, useEffect } from "react";
-import { API_KEY, CATS_URL } from "@/lib/constants";
-
-export type DogInfo = {
-  id: string;
-  url: string;
-  width: number;
-  height: number;
-};
+import { API_KEY, API_URL } from "@/lib/constants";
+import { CardInfo } from "@/lib/types";
 
 export const useDogs = () => {
-  const [data, setData] = useState<DogInfo[]>([]);
+  const [data, setData] = useState<CardInfo[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(CATS_URL, {
+        const response = await fetch(API_URL, {
           headers: {
             "x-api-key": API_KEY,
           },
@@ -26,7 +20,7 @@ export const useDogs = () => {
           throw new Error(`API request failed with status ${response.status}`);
         }
 
-        const json: DogInfo[] = await response.json();
+        const json: CardInfo[] = await response.json();
 
         const updatedData = json.map((dog) => {
           const img = new Image();
