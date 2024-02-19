@@ -4,10 +4,20 @@ import { CardInfo } from "@/lib/types";
 
 export const useDogs = () => {
   const [data, setData] = useState<CardInfo[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const preloadImages = (dogs: CardInfo[]): Promise<void>[] => {
+      return dogs.map((dog) => {
+        return new Promise<void>((resolve) => {
+          const img = new Image();
+          img.src = dog.url;
+          img.onload = () => resolve();
+        });
+      });
+    };
+
     const fetchData = async () => {
       try {
         const response = await fetch(API_URL, {
@@ -22,14 +32,8 @@ export const useDogs = () => {
 
         const json: CardInfo[] = await response.json();
 
-        const updatedData = json.map((dog) => {
-          const img = new Image();
-          img.src = dog.url;
-
-          return { ...dog };
-        });
-
-        setData(updatedData);
+        await Promise.all(preloadImages(json));
+        setData(json);
       } catch (err) {
         setError("An unknown error occurred ");
       } finally {
