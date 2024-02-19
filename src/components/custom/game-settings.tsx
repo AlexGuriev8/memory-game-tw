@@ -14,7 +14,7 @@ import {
   rowOptions,
 } from "@/features/options";
 
-import { useSettingsStore, useSettingsActions } from "@/hooks/useSettings";
+import { useSettingsStore, useSettingsActions } from "@/store";
 import { GameModeType, GameModes } from "@/lib/types";
 
 type GameSettingsProps = {

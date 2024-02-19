@@ -8,7 +8,7 @@ import {
   useGameBoardStore,
   useSettingsActions,
   useSettingsStore,
-} from "./useSettings";
+} from "@/store";
 
 export const useMemoryGame = () => {
   const { data, isLoading } = useDogs();
