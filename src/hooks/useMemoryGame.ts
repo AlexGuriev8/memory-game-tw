@@ -93,7 +93,7 @@ export const useMemoryGame = () => {
       updateScores();
       setFlipped([]);
 
-      if (newMatchedSet.size * matchesCount === totalCount) {
+      if (newMatchedSet.size * matchesCount === cards.length) {
         setGameCompleted(true);
       }
     }
