@@ -1,7 +1,7 @@
-import { DogInfo } from "@/hooks/useDogs";
+import { CardInfo } from "@/lib/types";
 
 type CardProps = {
-  card: Pick<DogInfo, "url" | "id">;
+  card: Pick<CardInfo, "url" | "id">;
   isMatched: boolean;
   isFlipped: boolean;
   index: number;
